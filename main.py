@@ -7,8 +7,9 @@ import itertools
 
 
 # Create new Instance of Chrome
+
 driver_path = "chromedriver.exe"
-brave_path = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
+brave_path = "C:\Program Files\Google\Chrome\Application\chrome.exe"
 
 option = webdriver.ChromeOptions()
 option.binary_location = brave_path
@@ -21,7 +22,7 @@ for _ in itertools.repeat(None, 8):
     browser.get("https://www.minuteinbox.com")
 
     # Your Refereal Link
-    browser.execute_script("window.open('https://app.treasure.cloud/auth/signup?code=MTM5MGFhYjQtYmI4ZS0xMWViLTg5MTUtNTVlZWJmNWMyNDFjOmYwYTE0NjdhLTMyYzEtMTFlYi1iMWI4LTViYTQzMmY1ZjBkMA==');")
+    browser.execute_script("window.open('https://app.treasure.cloud/auth/signup?code=ODc4NTA3ZjEtNDRlMy0xMWVjLWI2ZjMtN2Q3Nzc1ZDA3ZWI2OmYwYTE0NjdhLTMyYzEtMTFlYi1iMWI4LTViYTQzMmY1ZjBkMA==');")
     
 
     browser.switch_to.window(browser.window_handles[0])
