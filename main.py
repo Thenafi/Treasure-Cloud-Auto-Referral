@@ -86,26 +86,22 @@ for _ in itertools.repeat(None, 8):
     time.sleep(2)
     print("Waiting for the email")
     time.sleep(3)
-    
+
     print(".................")
 
     time.sleep(1)
     print(".................")
     time.sleep(1)
-
-    print(".................")
-    time.sleep(1)
-    print(".................")
-    time.sleep(2)
-    
-
 
     print("If there is no email and the process failed, try one more time please.")
-
+    time.sleep(3)
     WebDriverWait(browser, 30).until(
-    EC.text_to_be_present_in_element((By.XPATH, '//td[02]'), "Please verify your email address"))
+        EC.text_to_be_present_in_element(
+            (By.XPATH, "//td[02]"), "Please verify your email address"
+        )
+    )
     print("Email Foud")
-    
+
     wpccBtn = browser.find_element_by_css_selector("a.wpcc-btn")
     wpccBtn.click()
     browser.refresh()
@@ -117,10 +113,6 @@ for _ in itertools.repeat(None, 8):
         "body > div.container:nth-child(2) > div.row.mailboxBlock.no-padding:nth-child(6) > div.row.tab-content > div#inbox.tab-pane.active.col-xs-12.no-side-padding.no-padding-bottom:nth-child(1) > table.table.table-hover.no-margin:nth-child(1) > tbody#schranka:nth-child(2) > tr.hidden-xs.hidden-sm.klikaciRadek:nth-child(1) > td:nth-child(2)"
     )
     verifyEmail.click()
-
-
-
-
 
     print("Verification Email loaded")
     time.sleep(2)
