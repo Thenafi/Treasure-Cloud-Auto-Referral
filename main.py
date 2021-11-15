@@ -93,7 +93,7 @@ for _ in itertools.repeat(None, 8):
     print(".................")
     time.sleep(1)
 
-    print("If there is no email and the process failed, try one more time please.")
+    print("If there is no email and the process failed, run the main.py again please.")
     time.sleep(3)
     WebDriverWait(browser, 30).until(
         EC.text_to_be_present_in_element(
@@ -107,7 +107,7 @@ for _ in itertools.repeat(None, 8):
     browser.refresh()
     time.sleep(1)
     print("Loading verification email")
-    time.sleep(2)
+   
 
     verifyEmail = browser.find_element_by_css_selector(
         "body > div.container:nth-child(2) > div.row.mailboxBlock.no-padding:nth-child(6) > div.row.tab-content > div#inbox.tab-pane.active.col-xs-12.no-side-padding.no-padding-bottom:nth-child(1) > table.table.table-hover.no-margin:nth-child(1) > tbody#schranka:nth-child(2) > tr.hidden-xs.hidden-sm.klikaciRadek:nth-child(1) > td:nth-child(2)"
@@ -153,7 +153,7 @@ for _ in itertools.repeat(None, 8):
     time.sleep(2)
     print("Waiting untill user activation")
 
-    wait = WebDriverWait(browser, 30)
+    wait = WebDriverWait(browser, 70)
     element = wait.until(
         EC.element_to_be_clickable(
             (By.CSS_SELECTOR, "#mat-checkbox-1 .mat-checkbox-inner-container")
