@@ -38,8 +38,6 @@ for _ in itertools.repeat(None, 8):
 
     time.sleep(30) 
 
-    print ("done2")
-
     
     time.sleep(3)
     print("donee")
@@ -75,9 +73,15 @@ for _ in itertools.repeat(None, 8):
 
     refreshButton = browser.find_element_by_css_selector('body > div:nth-child(2) > div:nth-child(4) > div > a.blockLink.refresh')
     refreshButton.click()
-    time.sleep(10)
+    time.sleep(15)
     print("Refresh Clicked!")
-    time.sleep(10)
+    time.sleep(5)
+
+    refreshButton = browser.find_element_by_css_selector('body > div:nth-child(2) > div:nth-child(4) > div > a.blockLink.refresh')
+    refreshButton.click()
+    time.sleep(15)
+    print("Refresh Clicked!")
+    time.sleep(5)
 
     wpccBtn =  browser.find_element_by_css_selector('a.wpcc-btn')
     wpccBtn.click()
