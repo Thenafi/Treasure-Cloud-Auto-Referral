@@ -75,7 +75,7 @@ for _ in itertools.repeat(None, 8):
 
     continueButton = browser.find_element_by_css_selector("#continue-button")
     continueButton.click()
-    print("Singup clicked")
+    print("Singup Accepted")
     time.sleep(3)
 
     browser.switch_to.window(browser.window_handles[0])
