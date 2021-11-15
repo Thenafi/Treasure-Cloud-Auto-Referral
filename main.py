@@ -36,12 +36,13 @@ for _ in itertools.repeat(None, 8):
     browser.switch_to.window(browser.window_handles[1])
     print("Switching to Treasure Cloud!")
 
-    time.sleep(5) 
+    time.sleep(2) 
 
     coockclick= browser.find_element_by_css_selector("body > div.cdk-overlay-container:nth-child(14) > div.cdk-global-overlay-wrapper:nth-child(2) > div#cdk-overlay-0.cdk-overlay-pane.mobile-fullscreen-dialog > mat-dialog-container#mat-dialog-0.mat-dialog-container.ng-tns-c164-5.ng-trigger.ng-trigger-dialogContainer.ng-star-inserted:nth-child(2) > app-manage-cookies.ng-star-inserted > div#cookies-action-buttons.mat-dialog-actions.manage-cookies-dialog-actions:nth-child(3) > button.mat-focus-indicator.primary-action.mat-raised-button.mat-button-base.mat-accent:nth-child(3)")
     coockclick.click()
+    print("Cookies Clicked")
     time.sleep(3)
-    print("donee")
+    
 
 
 
@@ -63,69 +64,73 @@ for _ in itertools.repeat(None, 8):
 
     confirmPassButton = browser.find_element_by_css_selector('#mat-input-3')
     confirmPassButton.send_keys(password)
-    print(password)
-
+    
+    print("Password and Name Typed")
+    time.sleep(3)
    
     continueButton = browser.find_element_by_css_selector('#continue-button')
     continueButton.click()
-    print("singup clicked")
+    print("Singup clicked")
     time.sleep(3)
 
     browser.switch_to.window(browser.window_handles[0])
 
-    print("switched")
+    print("Switched to temp mail")
 
     refreshButton = browser.find_element_by_css_selector('body > div:nth-child(2) > div:nth-child(4) > div > a.blockLink.refresh')
     refreshButton.click()
-    time.sleep(10)
+    time.sleep(15)
+   
+
+    refreshButton = browser.find_element_by_css_selector('body > div:nth-child(2) > div:nth-child(4) > div > a.blockLink.refresh')
+    refreshButton.click()
     print("Refresh Clicked!")
-    time.sleep(5)
-
-    refreshButton = browser.find_element_by_css_selector('body > div:nth-child(2) > div:nth-child(4) > div > a.blockLink.refresh')
-    refreshButton.click()
-    print("Refresh Clicked!2")
     time.sleep(3)
 
     wpccBtn =  browser.find_element_by_css_selector('a.wpcc-btn')
     wpccBtn.click()
+
+    print("Email Verification Process started")
+    time.sleep(3)
     
     print("Viewing verification email")
 
     verifyEmail = browser.find_element_by_css_selector('tr > td.from')
     verifyEmail.click()
 
-    print("loaded email")
+    print("Verification Email loaded")
     time.sleep(5) 
 
     
 
 
     browser.switch_to.frame('iframeMail')
-    print("Switched to iFrame!")    
+    print("Switched to iFrame.")    
 
-    time.sleep(2)
+    time.sleep(1)
 
-    print("going to click  the verify emal")
+    
+    
     verifyButton=browser.find_element_by_tag_name('td')
     verifyButton.click()
-    print("Verify Button Clicking")
+    print("Verify Button Clicked")
     time.sleep(3)
-    print("waaiting")
+    print("Waiting")
     time.sleep(2)
     tester=browser.find_element_by_tag_name('a')
     tester.click()
-    print("finally clicked")
+    print("Process Completed")
     time.sleep(3)
     browser.switch_to.default_content()
-    print("Switched Back")
+    
 
-    time.sleep(2)
+    time.sleep(1)
     browser.switch_to.window(browser.window_handles[2])
-    print("tab switched")
+    print("Tab switched to Tresure Cloud")
 
     time.sleep(2)
 
-    print("typing password")
+    print("Typing password")
     time.sleep(2)
     pasteloginpass=browser.find_element_by_css_selector('#mat-input-1')
     pasteloginpass.send_keys(password)
@@ -133,10 +138,15 @@ for _ in itertools.repeat(None, 8):
     clciksingin=browser.find_element_by_css_selector('#signin-button')
     clciksingin.click()
 
-    print("sign in cliked")
-    time.sleep(3)
+    print("Sign in cliked")
+    time.sleep(20)
 
-    print( "process completed")
+    termscheck= browser.find_element_by_css_selector('#mat-checkbox-1 .mat-checkbox-inner-container')
+    termscheck.click()
+    clickcontinue=browser.find_element_by_css_selector('body > div.cdk-overlay-container:nth-child(39) > div.cdk-global-overlay-wrapper:nth-child(2) > div#cdk-overlay-1.cdk-overlay-pane.mobile-fullscreen-dialog > mat-dialog-container#mat-dialog-0.mat-dialog-container.ng-tns-c164-5.ng-trigger.ng-trigger-dialogContainer.ng-star-inserted:nth-child(2) > app-preferences-dialog.ng-star-inserted > div.mat-dialog-content.preferences-dialog-content > div.preferences-dialog-checkboxes:nth-child(3) > button.mat-focus-indicator.primary-action.mat-raised-button.mat-button-base.mat-accent:nth-child(4)')
+    clickcontinue.click()
+
+    print( "FUll process completed")
     time.sleep(3)
 
 
