@@ -1,3 +1,5 @@
 names
 selenium
 password_generator
+wheel
+random-password-generator
