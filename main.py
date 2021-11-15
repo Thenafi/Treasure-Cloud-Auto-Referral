@@ -95,7 +95,7 @@ for _ in itertools.repeat(None, 8):
 
     print("If there is no email and the process failed, run the main.py again please.")
     time.sleep(3)
-    WebDriverWait(browser, 30).until(
+    WebDriverWait(browser, 60).until(
         EC.text_to_be_present_in_element(
             (By.XPATH, "//td[02]"), "Please verify your email address"
         )
@@ -104,7 +104,7 @@ for _ in itertools.repeat(None, 8):
 
     wpccBtn = browser.find_element_by_css_selector("a.wpcc-btn")
     wpccBtn.click()
-    browser.refresh()
+   
     time.sleep(1)
     print("Loading verification email")
    
@@ -116,11 +116,12 @@ for _ in itertools.repeat(None, 8):
 
     print("Verification Email loaded")
     time.sleep(2)
-
-    browser.switch_to.frame("iframeMail")
+    browser.switch_to.frame(browser.find_element_by_id('iframeMail'))
     print("Switched to iFrame.")
 
+
     time.sleep(1)
+    browser.execute_script("arguments[0].scrollIntoView();", browser.find_element_by_tag_name("a"))
 
     tester = browser.find_element_by_tag_name("a")
     tester.click()
@@ -128,7 +129,7 @@ for _ in itertools.repeat(None, 8):
     print("Verify Button Clicked")
     time.sleep(2)
 
-    print("Process Completed")
+    print("Verification process Completed")
     time.sleep(1)
     browser.switch_to.default_content()
 
@@ -164,7 +165,7 @@ for _ in itertools.repeat(None, 8):
         "#mat-checkbox-1 .mat-checkbox-inner-container"
     )
     termscheck.click()
-    time.sleep(2)
+    time.sleep(3)
     print("Terms Accepted")
     clickcontinue = browser.find_element_by_css_selector(
         "body > div.cdk-overlay-container:nth-child(17) > div.cdk-global-overlay-wrapper:nth-child(2) > div#cdk-overlay-1.cdk-overlay-pane.mobile-fullscreen-dialog > mat-dialog-container#mat-dialog-0.mat-dialog-container.ng-tns-c164-5.ng-trigger.ng-trigger-dialogContainer.ng-star-inserted:nth-child(2) > app-preferences-dialog.ng-star-inserted > div.mat-dialog-content.preferences-dialog-content > div.preferences-dialog-checkboxes:nth-child(3) > button.mat-focus-indicator.primary-action.mat-raised-button.mat-button-base.mat-accent:nth-child(4)"
