@@ -36,11 +36,14 @@ for _ in itertools.repeat(None, 8):
     browser.switch_to.window(browser.window_handles[1])
     print("Switching to Treasure Cloud!")
 
-    time.sleep(30) 
+    time.sleep(5) 
 
-    
+    coockclick= browser.find_element_by_css_selector("body > div.cdk-overlay-container:nth-child(14) > div.cdk-global-overlay-wrapper:nth-child(2) > div#cdk-overlay-0.cdk-overlay-pane.mobile-fullscreen-dialog > mat-dialog-container#mat-dialog-0.mat-dialog-container.ng-tns-c164-5.ng-trigger.ng-trigger-dialogContainer.ng-star-inserted:nth-child(2) > app-manage-cookies.ng-star-inserted > div#cookies-action-buttons.mat-dialog-actions.manage-cookies-dialog-actions:nth-child(3) > button.mat-focus-indicator.primary-action.mat-raised-button.mat-button-base.mat-accent:nth-child(3)")
+    coockclick.click()
     time.sleep(3)
     print("donee")
+
+
 
     pasteEmailButton = browser.find_element_by_css_selector('#mat-input-0')
     pasteEmailButton.send_keys(Keys.CONTROL, 'v')
@@ -60,12 +63,13 @@ for _ in itertools.repeat(None, 8):
 
     confirmPassButton = browser.find_element_by_css_selector('#mat-input-3')
     confirmPassButton.send_keys(password)
+    print(password)
 
-    print("Waiting for Dismiss Button to Vanish")
-    time.sleep(5)
+   
     continueButton = browser.find_element_by_css_selector('#continue-button')
     continueButton.click()
-
+    print("singup clicked")
+    time.sleep(3)
 
     browser.switch_to.window(browser.window_handles[0])
 
@@ -73,115 +77,67 @@ for _ in itertools.repeat(None, 8):
 
     refreshButton = browser.find_element_by_css_selector('body > div:nth-child(2) > div:nth-child(4) > div > a.blockLink.refresh')
     refreshButton.click()
-    time.sleep(15)
+    time.sleep(10)
     print("Refresh Clicked!")
     time.sleep(5)
 
     refreshButton = browser.find_element_by_css_selector('body > div:nth-child(2) > div:nth-child(4) > div > a.blockLink.refresh')
     refreshButton.click()
-    time.sleep(15)
-    print("Refresh Clicked!")
-    time.sleep(5)
+    print("Refresh Clicked!2")
+    time.sleep(3)
 
     wpccBtn =  browser.find_element_by_css_selector('a.wpcc-btn')
     wpccBtn.click()
-    print("Cookies Clicked")
+    
+    print("Viewing verification email")
 
     verifyEmail = browser.find_element_by_css_selector('tr > td.from')
     verifyEmail.click()
 
-    print("Email Clicked!")
+    print("loaded email")
     time.sleep(5) 
 
+    
+
+
     browser.switch_to.frame('iframeMail')
-    print("Switched to iFrame!")
+    print("Switched to iFrame!")    
 
-    verifyButton = browser.find_element_by_css_selector('#hs_cos_wrapper_module_16158863021462 > table > tbody > tr > td > a')
+    time.sleep(2)
+
+    print("going to click  the verify emal")
+    verifyButton=browser.find_element_by_tag_name('td')
     verifyButton.click()
-
-    print("Verify Button Clicked!")
-
+    print("Verify Button Clicking")
+    time.sleep(3)
+    print("waaiting")
+    time.sleep(2)
+    tester=browser.find_element_by_tag_name('a')
+    tester.click()
+    print("finally clicked")
+    time.sleep(3)
     browser.switch_to.default_content()
     print("Switched Back")
 
-    time.sleep(7)
+    time.sleep(2)
     browser.switch_to.window(browser.window_handles[2])
+    print("tab switched")
 
+    time.sleep(2)
 
+    print("typing password")
+    time.sleep(2)
+    pasteloginpass=browser.find_element_by_css_selector('#mat-input-1')
+    pasteloginpass.send_keys(password)
 
+    clciksingin=browser.find_element_by_css_selector('#signin-button')
+    clciksingin.click()
 
+    print("sign in cliked")
+    time.sleep(3)
 
-    signUpButton = browser.find_element_by_css_selector('#signup-button')
-    signUpButton.click()
-
-    print("Signup Clicked!")
-    time.sleep(10) 
-
-    browser.switch_to.window(browser.window_handles[0])
-
-    refreshButton = browser.find_element_by_css_selector('body > div:nth-child(2) > div:nth-child(4) > div > a.blockLink.refresh')
-    refreshButton.click()
-
-    print("Refresh Clicked!")
-    time.sleep(5)
-
-    wpccBtn =  browser.find_element_by_css_selector('a.wpcc-btn')
-    wpccBtn.click()
-    print("Cookies Clicked")
-
-    verifyEmail = browser.find_element_by_css_selector('tr > td.from')
-    verifyEmail.click()
-
-    print("Email Clicked!")
-    time.sleep(5) 
-
-    browser.switch_to.frame('iframeMail')
-    print("Switched to iFrame!")
-
-    verifyButton = browser.find_element_by_css_selector('#hs_cos_wrapper_module_16158863021462 > table > tbody > tr > td > a')
-    verifyButton.click()
-
-    print("Verify Button Clicked!")
-
-    browser.switch_to.default_content()
-    print("Switched Back")
-
-    time.sleep(7)
-    browser.switch_to.window(browser.window_handles[2])
-
-    nameButton = browser.find_element_by_css_selector('#mat-input-1')
-    nameButton.send_keys(names.get_full_name())
-
-    pwo = PasswordGenerator()
-    pwo.minlen = 10
-
-    password = pwo.generate()
-
-    passButton = browser.find_element_by_css_selector('#mat-input-2')
-    passButton.send_keys(password)
-
-    confirmPassButton = browser.find_element_by_css_selector('#mat-input-3')
-    confirmPassButton.send_keys(password)
-
-    print("Waiting for Dismiss Button to Vanish")
-    time.sleep(5)
-
-    gotitButton = browser.find_element_by_css_selector('button.ng-tns-c58-0')
-    gotitButton.click()
-    print("Cookie Notification Clicked")
-
-    continueButton = browser.find_element_by_css_selector('#continue-button')
-    continueButton.click()
-
-    time.sleep(30)
-    print("Details Submitted!")
+    print( "process completed")
+    time.sleep(3)
 
     browser.quit()
-    time.sleep(5)
-
-
-
-
-
-
-
+    
