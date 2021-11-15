@@ -139,5 +139,5 @@ for _ in itertools.repeat(None, 8):
     print( "process completed")
     time.sleep(3)
 
-    browser.quit()
+
     
