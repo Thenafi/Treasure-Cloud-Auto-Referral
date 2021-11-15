@@ -70,12 +70,12 @@ for _ in itertools.repeat(None, 8):
     confirmPassButton = browser.find_element_by_css_selector("#mat-input-3")
     confirmPassButton.send_keys(password)
     print("Your passord=", password)
-    print("Password and Name Typed")
+    print("Password and Name Filled")
     time.sleep(1)
 
     continueButton = browser.find_element_by_css_selector("#continue-button")
     continueButton.click()
-    print("Singup Accepted")
+    print("Signing Up")
     time.sleep(3)
 
     browser.switch_to.window(browser.window_handles[0])
@@ -85,39 +85,42 @@ for _ in itertools.repeat(None, 8):
     print("Email Verification Process started")
     time.sleep(2)
     print("Waiting for the email")
-    time.sleep(2)
-    print("Refreshing inbox")
-    print("If there is no email try the process one more time please.")
-    time.sleep(2)
-    try:
-        element = WebDriverWait(browser, 30).until(
-            EC.presence_of_element_located(
-                (
-                    By.CSS_SELECTOR,
-                    "body > div.container:nth-child(2) > div.row.mailboxBlock.no-padding:nth-child(6) > div.row.tab-content > div#inbox.tab-pane.active.col-xs-12.no-side-padding.no-padding-bottom:nth-child(1) > table.table.table-hover.no-margin:nth-child(1) > tbody#schranka:nth-child(2) > tr.hidden-xs.hidden-sm.klikaciRadek:nth-child(1) > td:nth-child(2)",
-                )
-            )
-        )
-    except:
-        browser.refresh()
+    time.sleep(3)
+    
+    print(".................")
 
-    refreshButton = browser.find_element_by_css_selector(
-        "body > div:nth-child(2) > div:nth-child(4) > div > a.blockLink.refresh"
-    )
-    refreshButton.click()
     time.sleep(1)
-    print("Found the Email")
+    print(".................")
+    time.sleep(1)
+
+    print(".................")
+    time.sleep(1)
+    print(".................")
+    time.sleep(2)
+    
+
+
+    print("If there is no email and the process failed, try one more time please.")
+
+    WebDriverWait(browser, 30).until(
+    EC.text_to_be_present_in_element((By.XPATH, '//td[02]'), "Please verify your email address"))
+    print("Email Foud")
+    
     wpccBtn = browser.find_element_by_css_selector("a.wpcc-btn")
     wpccBtn.click()
     browser.refresh()
     time.sleep(1)
-
     print("Loading verification email")
+    time.sleep(2)
 
     verifyEmail = browser.find_element_by_css_selector(
         "body > div.container:nth-child(2) > div.row.mailboxBlock.no-padding:nth-child(6) > div.row.tab-content > div#inbox.tab-pane.active.col-xs-12.no-side-padding.no-padding-bottom:nth-child(1) > table.table.table-hover.no-margin:nth-child(1) > tbody#schranka:nth-child(2) > tr.hidden-xs.hidden-sm.klikaciRadek:nth-child(1) > td:nth-child(2)"
     )
     verifyEmail.click()
+
+
+
+
 
     print("Verification Email loaded")
     time.sleep(2)
@@ -141,7 +144,7 @@ for _ in itertools.repeat(None, 8):
     browser.switch_to.window(browser.window_handles[2])
     print("Tab switched to Tresure Cloud")
 
-    time.sleep(1)
+    time.sleep(3)
 
     wait = WebDriverWait(browser, 30)
     element = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#mat-input-1")))
@@ -154,7 +157,7 @@ for _ in itertools.repeat(None, 8):
     clciksingin = browser.find_element_by_css_selector("#signin-button")
     clciksingin.click()
 
-    print("Sign in cliked")
+    print("Sign in clicked")
     time.sleep(2)
     print("Waiting untill user activation")
 
@@ -177,7 +180,7 @@ for _ in itertools.repeat(None, 8):
     clickcontinue.click()
     time.sleep(3)
 
-    print("FUll process completed")
+    print("Referral Done")
     time.sleep(3)
 
     browser.quit()
